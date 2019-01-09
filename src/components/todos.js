@@ -1,12 +1,11 @@
 import React from 'react';
 import { TodoItem } from '.';
 
+import axios from 'axios';
+
 export default class Todos extends React.Component {
   state = {
-    todos: [
-      { text: 'Learning React', completed: true },
-      { text: 'Practice React', completed: false }
-    ],
+    todos: [],
     newTodoText: ''
   };
 
@@ -17,7 +16,10 @@ export default class Todos extends React.Component {
       todos: todos,
       newTodoText: ''
     });
-
+    axios.post('http://localhost:3030/todos/', {text: newTodoText, completed: false})
+      .then(response => {
+        
+      });
   }
 
   handleChange = (e) => {
@@ -44,6 +46,15 @@ export default class Todos extends React.Component {
     this.setState({
       todos
     });
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3030/todos/')
+      .then((response) => {
+        this.setState({
+          todos: response.data
+        });
+      });
   }
 
   render() {
