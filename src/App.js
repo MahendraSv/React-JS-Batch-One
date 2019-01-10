@@ -24,6 +24,7 @@ class App extends Component {
                 <li><a href="/counter">Counter</a></li>
                 <li><a href="/todoRedux">Todo (Redux)</a></li>
                 <li><a href="/sample">Sample</a></li>
+                <li><a href="/context">Context</a></li>
               </ul>
             </div>
           </div>

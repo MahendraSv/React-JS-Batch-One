@@ -10,15 +10,13 @@ export default class Todos extends React.Component {
   };
 
   handleClick = (e) => {
-    let { todos, newTodoText } = this.state;
-    todos.push({text: newTodoText, completed: false});
-    this.setState({
-      todos: todos,
-      newTodoText: ''
-    });
+    let { newTodoText } = this.state;
     axios.post('http://localhost:3030/todos/', {text: newTodoText, completed: false})
       .then(response => {
-        
+        this.setState({
+          todos: response.data,
+          newTodoText: ''
+        });
       });
   }
 
@@ -46,6 +44,11 @@ export default class Todos extends React.Component {
     this.setState({
       todos
     });
+
+    axios.delete(`http://localhost:3030/todos/${i}`)
+      .then(response => {
+
+      });
   }
 
   componentDidMount() {

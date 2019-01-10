@@ -11,6 +11,7 @@ import { Products, Todo, Counter, TodoRedux } from './components';
 
 import store from './redux/store';
 import Sample from './components/sample';
+import Middle from './components/Provider';
 
 const Home = () => <h2>ES6 functional component!!!</h2>;
 
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/counter" component={Counter} />
         <Route path="/todoRedux" component={TodoRedux} />
         <Route path="/sample" component={Sample} />
+        <Route path="/context" component={Middle} />
       </div>
     </BrowserRouter>
   </Provider>,

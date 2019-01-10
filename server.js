@@ -16,9 +16,12 @@ var todos = [
 app.get('/todos', (req, res) => res.json(todos));
 
 app.post('/todos', (req, res) => {
-	console.log(req.body);
 	todos.push(req.body);
-	console.log(todos);
+	return res.json(todos);
+});
+
+app.delete('/todos', (req, res) => {
+	console.log(req.params);
 });
 
 app.listen(3030, function() {
